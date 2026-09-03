@@ -1,0 +1,50 @@
+{
+  "name": "mythic-bazaar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "compile": "hardhat build",
+    "test": "npm run test:contracts && npm run test:web",
+    "test:contracts": "hardhat test nodejs",
+    "test:web": "vitest run",
+    "wallet:create": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/mythic-wallet.ps1 create",
+    "wallet:address": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/mythic-wallet.ps1 address",
+    "wallet:validate": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/mythic-wallet.ps1 validate",
+    "wallet:copy-key": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/mythic-wallet.ps1 copy-key",
+    "wallet:balance": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/mythic-wallet.ps1 balance",
+    "chain:local": "hardhat node --hostname 127.0.0.1",
+    "wallet:fund-local": "node scripts/fund-local-wallet.mjs",
+    "deploy:local": "hardhat ignition deploy ignition/modules/MythicBazaar.ts --network localhost --reset"
+  },
+  "dependencies": {
+    "@tanstack/react-query": "5.102.8",
+    "lucide-react": "1.39.0",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "viem": "2.56.1",
+    "wagmi": "3.7.7"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "5.0.7",
+    "@openzeppelin/contracts": "5.6.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "16.3.3",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.2.0",
+    "@types/react-dom": "^19.2.0",
+    "@vitejs/plugin-react": "^6.0.0",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.4",
+    "hardhat": "3.15.0",
+    "jsdom": "29.1.1",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11"
+  }
+}
